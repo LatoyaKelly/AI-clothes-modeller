@@ -1,0 +1,8 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  },
+  "globalHeaders": {
+    "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.hf.space wss://*.hf.space; img-src 'self' https://*.huggingface.co https://*.hf.space blob: data:; font-src 'self' data:;"
+  }
+}
