@@ -3,8 +3,10 @@
 ## Architecture
 - **Frontend**: Next.js + React + Tailwind CSS, static export
 - **AI Backend**: Hugging Face Space `yisol/IDM-VTON` via `@gradio/client` (browser → WebSocket)
-- **Hosting**: Azure Static Web Apps (free tier)
+- **Hosting**: Vercel (free tier)
 - **Cost**: $0
+- **Live URL**: https://ai-clothes-modeller.vercel.app
+- **GitHub**: https://github.com/LatoyaKelly/AI-clothes-modeller
 
 ## Phases
 
@@ -34,15 +36,22 @@
 - [x] `src/app/layout.tsx` — Root layout with metadata
 - [x] `src/app/globals.css` — Tailwind import
 
-### Phase 6: Deployment — PENDING
-- [ ] Create GitHub repo and push code
-- [ ] Azure Portal → Create Static Web App → Link to GitHub repo
-- [ ] Add `AZURE_STATIC_WEB_APPS_API_TOKEN` secret to GitHub
-- [ ] Verify deployment and test end-to-end
+### Phase 6: Deployment — DONE
+- [x] Create GitHub repo and push code (`LatoyaKelly/AI-clothes-modeller`)
+- [x] Deploy to Vercel (switched from Azure SWA for simplicity)
+- [x] Production URL live: https://ai-clothes-modeller.vercel.app
+- [ ] Test end-to-end with real images on live URL
 
 ## Build Status
 - `npm run build` — Passing (output: 1MB in `out/`)
-- `npm run dev` — Passing (200 OK on localhost)
+- `npm run dev` — Passing (200 OK on localhost:3333)
+- Vercel production build — Passing (deployed in 38s)
+
+## Deployment
+- **Platform**: Vercel (free Hobby plan)
+- **Redeploy**: `vercel --prod` from project root
+- **Vercel project**: `lkellys-projects/ai-clothes-modeller`
+- Azure SWA workflow file kept in `.github/workflows/` as alternative option
 
 ## Key Technical Decisions
 - Person image sent in ImageEditor format: `{ background: handle_file(blob), layers: [], composite: null }`
@@ -60,5 +69,5 @@
 - [ ] Test with upper body garment
 - [ ] Test with full dress
 - [ ] Test on mobile browser
-- [ ] Verify no CSP violations in console after Azure deploy
+- [ ] Verify no CSP violations in console on Vercel deploy
 - [ ] Test error states: offline, timeout, invalid image format
